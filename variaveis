@@ -1,0 +1,9 @@
+$ curl -s -X POST http://localhost:8001/plugins \
+  -d name=oidc \
+  -d config.client_id=kong \
+  -d config.client_secret=4Njudt75HEsgbFLHn19vCg6BCQFlYwum \
+  -d config.bearer_only=yes \
+  -d config.realm=MyRealm \
+  -d config.introspection_endpoint=http://10.1.1.102:8180/realms/MyRealm/protocol/openid-connect/token/introspect \
+  -d config.discovery=http://10.1.1.102:8180/auth/realms/MyRealm/.well-known/openid-configuration \
+  | python -mjson.tool
